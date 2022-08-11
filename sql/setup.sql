@@ -9,3 +9,8 @@ CREATE TABLE github_users (
   email TEXT,
   avatar TEXT,  
 );
+
+-- CREATE TABLE posts (
+--   id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+
+-- )

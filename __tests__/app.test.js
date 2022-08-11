@@ -2,6 +2,7 @@ const pool = require('../lib/utils/pool');
 const setup = require('../data/setup');
 const request = require('supertest');
 const app = require('../lib/app');
+const { agent } = require('supertest');
 
 jest.mock('../lib/services/github');
 
@@ -23,6 +24,10 @@ describe('github oauth routes', () => {
       iat: expect.any(Number),
       exp: expect.any(Number),
     });
+  });
+  it('#DELETE should logout user by deleting cookie', async () => {
+    const res = await request.agent(app).delete('/api/v1/github');
+    expect(res.body.message).toBe('Successfully Logged Out!');
   });
   afterAll(() => {
     pool.end();
