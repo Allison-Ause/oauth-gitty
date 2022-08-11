@@ -2,7 +2,6 @@ const pool = require('../lib/utils/pool');
 const setup = require('../data/setup');
 const request = require('supertest');
 const app = require('../lib/app');
-const { agent } = require('supertest');
 
 jest.mock('../lib/services/github');
 
@@ -33,3 +32,13 @@ describe('github oauth routes', () => {
     pool.end();
   });
 });
+
+// describe('posts routes', () => {
+//   beforeEach(() => {
+//     return setup(pool);
+//   });
+
+//   afterAll(() => {
+//     pool.end();
+//   });
+// });
