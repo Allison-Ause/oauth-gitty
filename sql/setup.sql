@@ -20,7 +20,7 @@ CREATE TABLE posts (
 
 INSERT INTO github_users (username, email, avatar) VALUES
 ('Piper-Bellingham', 'Piper@Bellingham.com', 'https://fillmurray.com/200/300'),
-('Adam-Driver', 'Kylo@HotRod.com', 'https://www.fillmurray.com/g/200/300');
+('Adam-Driver', 'Kylo@Ren.com', 'https://www.fillmurray.com/g/200/300');
 
 
 INSERT INTO posts (title, content, user_id) VALUES
