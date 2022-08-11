@@ -12,13 +12,14 @@ describe('github oauth routes', () => {
   it('#GET should login or create User from github oauth callback', async () => {
     const res = await request
       .agent(app)
-      .get('/api/v1/callback?code=42')
+      .get('/api/v1/github/callback?code=42')
       .redirects(1);
 
     expect(res.body).toEqual({
       id: expect.any(String),
       username: 'test_github_user',
       email: 'test@test.com',
+      avatar: expect.any(String),
       iat: expect.any(Number),
       exp: expect.any(Number),
     });
