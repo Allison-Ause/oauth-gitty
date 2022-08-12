@@ -2,6 +2,7 @@ const pool = require('../lib/utils/pool');
 const setup = require('../data/setup');
 const request = require('supertest');
 const app = require('../lib/app');
+const Posts = require('../lib/models/Posts');
 
 jest.mock('../lib/services/github');
 const agent = request.agent(app);
@@ -35,9 +36,12 @@ describe('post routes', () => {
     expect(res.status).toBe(200);
     expect(res.body).toEqual({
       id: expect.any(String),
-      ...testPost,
+      title: 'Wild Geese',
+      content:
+        'Whoever you are, no matter how lonely, the world offers itself to your imagination.',
       user_id: expect.any(String),
     });
+    expect(res.body.user_id).toBe('3');
   });
   afterAll(() => {
     pool.end();
